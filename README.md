@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# 📄 Docnova
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bu proje, Docnova API’si ile entegre çalışan bir fatura listeleme ve detay görüntüleme uygulamasıdır. Giriş yaparak kullanıcıya özel fatura listesini tablo halinde gösteriyorum, kullanıcı isterse detay sayfasında da fatura bilgilerini inceleyebiliyor.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Kurulum ve Çalıştırma
 
-### `npm start`
+### 1. Repo Klonlama
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+git clone https://github.com/kullanici-adi/docnova-invoice-app.git
+cd docnova
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. Gerekli Paketleri Yükleme
 
-### `npm test`
+```bash
+npm install --legacy-peer-deps
+# veya
+yarn install --legacy-peer-deps
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3. Uygulamayı Başlatma
 
-### `npm run build`
+```bash
+npm start
+# veya
+yarn start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Uygulama `http://localhost:3000` adresinde çalışmaya başlar.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📂 Proje Klasör Yapısı
 
-### `npm run eject`
+```
+src/
+├── api/                     
+│   └── axios.js
+│
+├── store/                     
+│   └── store.js
+│
+├── features/
+│   ├── auth/               
+│   │   ├── authSlice.js
+│   │   └── LoginPage.jsx
+│   │
+│   └── invoice/             
+│       ├── invoiceSlice.js
+│       ├── InvoiceListPage.jsx
+│       └── InvoiceDetailPage.jsx
+│
+├── i18n/                    
+│   ├── index.js
+│
+├── App.jsx                  
+├── index.jsx                
+└── index.css                
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🔐 Giriş Bilgisi
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Giriş için bu endpoint'e istek gönderiyorum:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```http
+POST /auth/login/dev
+```
 
-## Learn More
+Email: devmelauser@yopmail.com
+Password: Work123???
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Başarılı giriş sonrası dönen kullanıcı objesini hem `Redux store`'da hem de `localStorage`'da saklıyorum.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📦 Kullandığım Teknolojiler
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- React.js
+- Redux Toolkit
+- React Router
+- Ant Design (UI Kit)
+- Axios
+- i18next (çoklu dil desteği)
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🌐 Dil Desteği
 
-### Making a Progressive Web App
+Uygulamayı hem Türkçe hem İngilizce olarak kullanmak mümkün. Açılış dili Türkçe olacak şekilde ayarladım.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🧠 Geliştirme Notlarım
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Giriş yaptıktan sonra kullanıcı bilgisini `Redux` ve `localStorage` ile saklıyorum.
+- Faturaları ayrı bir slice içinde saklıyorum.
+- Sayfa yenilendiğinde hem kullanıcı hem de fatura verileri korunuyor.
+- Hatalı API isteklerinde kullanıcıya uyarı gösteriyorum.
+- Hem liste hem de detay sayfasındaki tabloları şık, kenarlıklı ve responsive tasarladım.
+- Logout işlemiyle birlikte kullanıcıyı login ekranına yönlendiriyorum.
+- Kodun temiz, okunabilir ve sürdürülebilir olması için dikkat ettim.
