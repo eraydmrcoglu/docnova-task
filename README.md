@@ -9,7 +9,7 @@ Bu proje, Docnova API’si ile entegre çalışan bir fatura listeleme ve detay 
 ### 1. Repo Klonlama
 
 ```bash
-git clone https://github.com/kullanici-adi/docnova-invoice-app.git
+git clone [https://github.com/kullanici-adi/docnova-invoice-app.git](https://github.com/eraydmrcoglu/docnova-task.git)
 cd docnova
 ```
 
