@@ -89,12 +89,6 @@ Başarılı giriş sonrası dönen kullanıcı objesini hem `Redux store`'da hem
 
 ---
 
-## 🌐 Dil Desteği
-
-Uygulamayı hem Türkçe hem İngilizce olarak kullanmak mümkün. Açılış dili Türkçe olacak şekilde ayarladım.
-
----
-
 ## 🧠 Geliştirme Notlarım
 
 - Giriş yaptıktan sonra kullanıcı bilgisini `Redux` ve `localStorage` ile saklıyorum.
